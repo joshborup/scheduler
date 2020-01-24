@@ -5,7 +5,7 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 
 const localizer = momentLocalizer(moment);
 
-const AppointmentCalendar = ({ appointments }) => {
+const AppointmentCalendar = ({ appointments, setSelectedUser }) => {
 	console.log(appointments);
 	const betterDates = appointments.map((appointment) => {
 		appointment.start = new Date(appointment.start);
@@ -18,6 +18,7 @@ const AppointmentCalendar = ({ appointments }) => {
 			startAccessor="start"
 			endAccessor="end"
 			onSelectEvent={(event) => {
+				setSelectedUser(event);
 				console.log("select event", event);
 			}}
 			// getDrilldownView={(

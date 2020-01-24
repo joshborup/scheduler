@@ -2,6 +2,10 @@ h1 {
 	font-size: 36px;
 	font-weight: 200;
 }
+h2 {
+	font-size: 26px;
+	font-weight: 200;
+}
 
 *,
 a {
@@ -25,3 +29,4 @@ button {
 @import "./components/shared/Header.scss";
 @import "./components/customers/Customers.scss";
 @import "./components/calendar/Calendar.scss";
+@import "./components/shared/PopUp.scss";

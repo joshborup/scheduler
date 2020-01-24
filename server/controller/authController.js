@@ -36,12 +36,14 @@ module.exports = {
 					const [newUser] = await User.find({
 						email: userInfo.email
 					});
+					newUser.newUser = true;
 					req.session.user = newUser;
 					res.redirect("/");
 				}
 			});
 		} else {
 			console.log("returnUser");
+			registerUser.newUser = false;
 			req.session.user = registerUser;
 			res.redirect("/");
 		}

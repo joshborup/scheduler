@@ -13,7 +13,10 @@ const userSchema = new mongoose.Schema({
 			}
 		]
 	},
-	hoursOfOperation: {
+	startHoursOfOperation: {
+		type: String
+	},
+	endHoursOfOperation: {
 		type: String
 	}
 });

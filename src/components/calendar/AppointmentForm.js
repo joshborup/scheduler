@@ -11,7 +11,10 @@ const AppointmentForm = ({ customerOptions, addAppointment }) => {
 			<h1>Appointment Calendar</h1>
 
 			<Formik
-				initialValues={{ name: "" }}
+				initialValues={{
+					name: "",
+					apptLength: 0
+				}}
 				validationSchema={Yup.object({
 					name: Yup.string().required("Required"),
 					apptLength: Yup.number().required("Required")
