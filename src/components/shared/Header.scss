@@ -1,0 +1,48 @@
+.main-header {
+	height: 80px;
+	background-color: rgb(250, 250, 250);
+	display: flex;
+	justify-content: center;
+	box-shadow: 1px 4px 5px rgba(0, 0, 0, 0.356),
+		1px 4px 15px rgba(0, 0, 0, 0.15);
+	align-items: center;
+
+	a,
+	button {
+		margin: 0 15px;
+		text-decoration: none;
+		font-size: 20px;
+		font-weight: 200;
+		color: #333333;
+		border: none;
+		background-color: rgb(250, 250, 250);
+	}
+
+	a:active {
+		color: black;
+	}
+
+	.active-nav-class {
+		position: relative;
+	}
+	.active-nav-class:after {
+		position: absolute;
+		content: "";
+
+		height: 2px;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: 0 auto;
+		border-bottom: solid rgba(51, 51, 51, 0.672) 2px;
+		animation: border 0.23s ease-in-out 1 forwards;
+	}
+	@keyframes border {
+		0% {
+			width: 0;
+		}
+		100% {
+			width: 100%;
+		}
+	}
+}

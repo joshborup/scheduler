@@ -1,26 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import authHook from "./hooks/authHook";
+import Header from "./components/shared/Header";
+import { Switch, Route } from "react-router-dom";
+import CustomerContainer from "./components/customers/CustomerContainer";
+import CalendarContainer from "./components/calendar/CalendarContainer";
+import "./App.scss";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const { user, login, logout } = authHook();
+	return (
+		<div className="App">
+			<Header user={user} login={login} logout={logout} />
+			<Switch>
+				<Route
+					exact
+					path="/"
+					render={() => {
+						return <div>Home</div>;
+					}}
+				/>
+				{user && (
+					<>
+						<Route
+							path="/customers"
+							component={CustomerContainer}
+						/>
+						<Route path="/calendar" component={CalendarContainer} />
+					</>
+				)}
+			</Switch>
+		</div>
+	);
 }
 
 export default App;
